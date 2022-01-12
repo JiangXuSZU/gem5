@@ -1,0 +1,4 @@
+Import('*')
+
+SimObject('NewObj.py',sim_objects=['NewObj'])
+Source('new_obj.cc')

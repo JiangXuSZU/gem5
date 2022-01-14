@@ -74,8 +74,6 @@ class LocalBP(BranchPredictor):
 
     localPredictorSize = Param.Unsigned(2048, "Size of local predictor")
     localCtrBits = Param.Unsigned(2, "Bits per counter")
-
-
 class TournamentBP(BranchPredictor):
     type = 'TournamentBP'
     cxx_class = 'gem5::branch_prediction::TournamentBP'
@@ -89,7 +87,6 @@ class TournamentBP(BranchPredictor):
     choicePredictorSize = Param.Unsigned(8192, "Size of choice predictor")
     choiceCtrBits = Param.Unsigned(2, "Bits of choice counters")
 
-
 class BiModeBP(BranchPredictor):
     type = 'BiModeBP'
     cxx_class = 'gem5::branch_prediction::BiModeBP'
@@ -99,6 +96,14 @@ class BiModeBP(BranchPredictor):
     globalCtrBits = Param.Unsigned(2, "Bits per counter")
     choicePredictorSize = Param.Unsigned(8192, "Size of choice predictor")
     choiceCtrBits = Param.Unsigned(2, "Bits of choice counters")
+
+class GShareBP(BranchPredictor):
+    type = 'GShareBP'
+    cxx_class = 'gem5::branch_prediction::GShareBP'
+    cxx_header = "cpu/pred/gshare.hh"
+
+    counterSize = Param.Unsigned(2048, "Size of GShare Counters")
+    ctrBits = Param.Unsigned(2, "Bits per counter")
 
 class TAGEBase(SimObject):
     type = 'TAGEBase'
